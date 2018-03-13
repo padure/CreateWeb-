@@ -19,7 +19,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
-
 </head>
 <body>
         
@@ -41,7 +40,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#"><b>Acasa</b><span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Servicii</b><span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" id="servicii-drop-down" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Servicii</b><span class="caret"></span></a>
                 <ul class="dropdown-menu" style="background-color: #b300b3;">
                     <li><a href="#">Creare site</a></li>
                     <li><a href="#">Sait de prezentare: One page</a></li>
@@ -93,9 +92,10 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script>
         $(document).ready(function(){
-            $("li").hover(function(){
-               // $(".dropdown").addClass("open");
-               alert('Salut');
+            $("#servicii-drop-down").hover(function(){
+                $(".dropdown").addClass("");
+               
+             });
         });
     </script>
 </body>
