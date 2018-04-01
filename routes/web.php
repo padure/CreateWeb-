@@ -12,12 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('users.index');
+    return view('layouts.home');
 });
 
+Route::get('/en', function () {
+    return view('users.en.index');
+});
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('index');
-Route::get('my-captcha', 'HomeController@myCaptcha')->name('myCaptcha');
-Route::post('my-captcha', 'HomeController@myCaptchaPost')->name('myCaptcha.post');
-Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
+Route::prefix('admin')->group(function () {
+    Route::get('meniu', 'Admin\AdminController@meniu');
+    Route::post('meniu', 'Admin\MeniuController@store');
+});
+Route::get('/admin', 'HomeController@index')->name('index');
