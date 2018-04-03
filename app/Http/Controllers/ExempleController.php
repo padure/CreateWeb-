@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-class TableController extends Controller
+class ExempleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login()
     {
         if (Auth::check()) {
-            return view('admin.table');
+            return view('admin.login');
             }else{
                 return redirect('login');
             }
@@ -27,9 +27,30 @@ class TableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function register()
     {
-        //
+        if (Auth::check()) {
+            return view('admin.register');
+            }else{
+                return redirect('login');
+            }
+    }
+
+    public function forgot()
+    {
+        if (Auth::check()) {
+            return view('admin.forgot');
+            }else{
+                return redirect('login');
+            }
+    }
+    public function blank()
+    {
+        if (Auth::check()) {
+            return view('admin.blank');
+            }else{
+                return redirect('login');
+            }
     }
 
     /**

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-class TableController extends Controller
+class CardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class TableController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return view('admin.table');
+            return view('admin.components.card');
             }else{
-                return redirect('login');
+                return redirect('admin');
             }
     }
 

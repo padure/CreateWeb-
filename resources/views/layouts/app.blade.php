@@ -44,7 +44,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="{{ url('admin/tables') }}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Tables</span>
           </a>
@@ -56,10 +56,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a href="{{ url('admin/navbars') }}">Navbar</a>
             </li>
             <li>
-              <a href="cards.html">Cards</a>
+              <a href="{{ url('admin/cards') }}">Cards</a>
             </li>
           </ul>
         </li>
@@ -70,16 +70,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="login.html">Login Page</a>
+              <a href="{{ url('admin/login') }}">Login Page</a>
             </li>
             <li>
-              <a href="register.html">Registration Page</a>
+              <a href="{{ url('admin/register') }}">Registration Page</a>
             </li>
             <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
+              <a href="{{ url('admin/forgot') }}">Forgot Password Page</a>
             </li>
             <li>
-              <a href="blank.html">Blank Page</a>
+              <a href="{{ url('admin/blank') }}">Blank Page</a>
             </li>
           </ul>
         </li>

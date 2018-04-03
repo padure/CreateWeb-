@@ -16,8 +16,6 @@ Route::get('register', function () {
 Route::get('/', function () {
     return view('layouts.home');
 });
-
-
 Route::get('/en', function () {
     return view('users.en.index');
 });
@@ -27,6 +25,12 @@ Route::prefix('admin')->group(function () {
     Route::get('meniu', 'AdminController@meniu');
     Route::post('meniu', 'MeniuController@store');
     Route::get('charts', 'ChartController@index');
-    Route::get('charts', 'TableController@index');
+    Route::get('tables', 'TableController@index');
+    Route::get('cards', 'CardController@index');
+    Route::get('navbars', 'NavbarController@index');
+    Route::get('login', 'ExempleController@login');
+    Route::get('register', 'ExempleController@register');
+    Route::get('forgot', 'ExempleController@forgot');
+    Route::get('blank', 'ExempleController@blank');
 });
 Route::get('admin', 'HomeController@index')->name('index');

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-class TableController extends Controller
+class NavbarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class TableController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return view('admin.table');
+            return view('admin.components.navbar');
             }else{
                 return redirect('login');
             }
