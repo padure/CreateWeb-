@@ -23,5 +23,3 @@ Route::prefix('admin')->group(function () {
     Route::get('meniu', 'Admin\AdminController@meniu');
     Route::post('meniu', 'Admin\MeniuController@store');
 });
-Route::get('/admin', 'HomeController@index')->name('index');
-Route::get('/admin/ad', 'HomeController@admin');

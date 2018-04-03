@@ -19,7 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+    <style>
+      @media (max-width: 991px){
+          .form-inline{
+          width: 100%!important;
+          }
+      }
+    </style>
     <!-- Custom styles for this template -->
     
 
@@ -37,10 +43,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
-            <li><form class="form-inline">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 70%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;">
-              </form>
-            </li>
+            <form class="form-inline nav-item" style="width: 100px;">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;">
+            </form>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Servicii</a>
             </li>
