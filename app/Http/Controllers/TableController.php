@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Meniu;
 
-class AdminController extends Controller
+class TableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -83,14 +80,5 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function meniu(){
-        if (Auth::check()) {
-        $meniu = Meniu::get();
-        return view('admin.meniu', compact('meniu'));
-        }else{
-            return redirect('admin');
-        }
     }
 }

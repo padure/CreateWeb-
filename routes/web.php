@@ -17,13 +17,16 @@ Route::get('/', function () {
     return view('layouts.home');
 });
 
+
 Route::get('/en', function () {
     return view('users.en.index');
 });
 
 Auth::routes();
 Route::prefix('admin')->group(function () {
-    Route::get('meniu', 'Admin\AdminController@meniu');
-    Route::post('meniu', 'Admin\MeniuController@store');
+    Route::get('meniu', 'AdminController@meniu');
+    Route::post('meniu', 'MeniuController@store');
+    Route::get('charts', 'ChartController@index');
+    Route::get('charts', 'TableController@index');
 });
 Route::get('admin', 'HomeController@index')->name('index');
