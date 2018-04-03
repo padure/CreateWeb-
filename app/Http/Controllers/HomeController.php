@@ -31,9 +31,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function myCaptcha()
+    public function admin()
     {
-        return view('myCaptcha');
+        return view('layouts.admin');
     }
 
 

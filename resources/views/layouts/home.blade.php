@@ -81,7 +81,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <span class="copyright">Copyright &copy; {{ config('app.name', 'Laravel') }}</span>
+            <span class="copyright">Copyright &copy; {{ config('app.name', 'Laravel') }} 2018</span>
           </div>
           <div class="col-md-6">
             <ul class="list-inline social-buttons">
