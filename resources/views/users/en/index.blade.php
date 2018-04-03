@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agency - Start Bootstrap Theme</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+    <style>
+      @media (max-width: 991px){
+          .form-inline{
+          width: 100%!important;
+          }
+      }
+    </style>
     <!-- Custom styles for this template -->
     
 
@@ -37,6 +43,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
+            <form class="form-inline nav-item" style="width: 150px;">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;">
+            </form>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Services</a>
             </li>
@@ -81,7 +90,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <span class="copyright">Copyright &copy; {{ config('app.name', 'Laravel') }}</span>
+            <span class="copyright">Copyright &copy; {{ config('app.name', 'Laravel') }} 2018</span>
           </div>
           <div class="col-md-6">
             <ul class="list-inline social-buttons">
