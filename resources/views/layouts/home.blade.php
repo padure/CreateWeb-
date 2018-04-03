@@ -37,6 +37,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
+            <form class="form-inline">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 90%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;">
+            </form>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Servicii</a>
             </li>
