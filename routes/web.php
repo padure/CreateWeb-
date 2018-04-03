@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('register', function () {
+    return redirect('login');
+});
 Route::get('/', function () {
     return view('layouts.home');
 });
@@ -18,6 +20,7 @@ Route::get('/', function () {
 Route::get('/en', function () {
     return view('users.en.index');
 });
+
 Auth::routes();
 Route::prefix('admin')->group(function () {
     Route::get('meniu', 'Admin\AdminController@meniu');

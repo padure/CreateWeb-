@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<style>
+    .content-wrapper {
+    margin-left: 0px;
+}
+footer.sticky-footer {
+    width: calc(100% - 0px);
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -74,4 +83,5 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
 @endsection
