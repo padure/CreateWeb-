@@ -23,7 +23,6 @@ Route::get('/en', function () {
 Auth::routes();
 Route::prefix('admin')->group(function () {
     Route::get('meniu', 'AdminController@meniu');
-    Route::post('meniu', 'MeniuController@store');
     Route::get('charts', 'ChartController@index');
     Route::get('tables', 'TableController@index');
     Route::get('cards', 'CardController@index');
@@ -32,5 +31,7 @@ Route::prefix('admin')->group(function () {
     Route::get('register', 'ExempleController@register');
     Route::get('forgot', 'ExempleController@forgot');
     Route::get('blank', 'ExempleController@blank');
+    Route::get('servicii', 'MeniuController@servicii');
+    Route::post('servicii', 'MeniuController@store');
 });
 Route::get('admin', 'HomeController@index')->name('index');

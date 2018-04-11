@@ -90,13 +90,13 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMulti">
             <li>
-              <a href="#">Second Level Item</a>
+              <a href="{{ url('admin/servicii') }}">Servicii</a>
             </li>
             <li>
-              <a href="#">Second Level Item</a>
+              <a href="{{ url('admin/blank') }}">Second Level Item</a>
             </li>
             <li>
-              <a href="#">Second Level Item</a>
+              <a href="{{ url('admin/blank') }}">Second Level Item</a>
             </li>
             <li>
               <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>

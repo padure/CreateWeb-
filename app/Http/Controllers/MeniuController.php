@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Meniu;
+use App\Services;
 use Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class MeniuController extends Controller
 {
@@ -36,8 +38,8 @@ class MeniuController extends Controller
     public function store(Request $request)
     {
         $input = Request::all();
-        Meniu::create($input);
-        return redirect('admin/meniu');
+        Services::create($input);
+        return redirect('admin/servicii');
     }
 
     /**
@@ -80,8 +82,13 @@ class MeniuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function servicii()
     {
-        //
+        if (Auth::check()) {
+            $servicii = Services::get();
+            return view('admin.meniu.servicii', compact('servicii'));
+            }else{
+                return redirect('admin');
+            }
     }
 }
