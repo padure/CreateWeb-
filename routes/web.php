@@ -13,9 +13,7 @@
 Route::get('register', function () {
     return redirect('login');
 });
-Route::get('/', function () {
-    return view('layouts.home');
-});
+Route::get('/', 'UsersController@index');
 Route::get('/en', function () {
     return view('users.en.index');
 });
