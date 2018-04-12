@@ -4,7 +4,7 @@
 <div class="container-fluid">
     @include('errors.errors')
     <h6 class="text-center">Adăugați Portofoliu</h6>
-    {{ Form::open(['url' => 'admin/portofoliu']) }}
+    {{ Form::open(array('url' => 'admin/portofoliu', 'files' => true )) }}
         <div class="form-group">
             {!! Form::label('name', 'Numele Proiectului:') !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nume']) !!}
@@ -31,11 +31,11 @@
         </div>
         <div class="form-group">
             {!! Form::label('url', 'Imagine full:') !!}
-            {{ Form::file('url') }}
+            {{ Form::file('url', ['name' => 'url'])}}
         </div>
         <div class="form-group">
             {!! Form::label('thumbnail', 'Imagine fundal:', ['class' => 'portofoliu-img']) !!}
-            {{ Form::file('thumbnail', ['class' => 'field']) }}
+            {{ Form::file('thumbnail',  ['name' => 'thumbnail']) }}
         </div>
         <div class="form-group">
             {!! Form::submit('Adaugă portofoliu', ['class' => 'form-control btn btn-primary']) !!}

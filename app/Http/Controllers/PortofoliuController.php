@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Request;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Input;
 use App\Portofolio;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PortofoliuController extends Controller
 {
@@ -42,6 +45,14 @@ class PortofoliuController extends Controller
     public function store(\App\Http\Requests\CreatePortofoliuRequest $request)
     {
         $input = Request::all();
+        $path = '';
+        $file = $request->file('url');
+        $fileTh = $request->file('thumbnail');
+        $fileName = $file->getClientOriginalName();
+        $fileNameTh = $fileTh->getClientOriginalName();
+        $path = 'img/portfolio';
+        $file = $file->move($path, $fileName);
+        $fileTh = $fileTh->move($path, $fileNameTh);
         Portofolio::create($input);
         return redirect('admin/portofoliu');
     }

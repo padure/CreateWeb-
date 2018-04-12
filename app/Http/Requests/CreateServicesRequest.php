@@ -26,7 +26,7 @@ class CreateServicesRequest extends FormRequest
         return [
             'title'       => 'required',
             'description' => 'required',
-            'icons'       => 'required'
+            'icons'       => 'required',
         ];
     }
 }
