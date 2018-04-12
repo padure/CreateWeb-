@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('description', 'Descriere:') !!}
-            {!! Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Descrierea proiectului']) !!}
+            {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Descrierea proiectului']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('date', 'Data:') !!}

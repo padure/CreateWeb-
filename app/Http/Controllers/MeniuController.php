@@ -39,7 +39,7 @@ class MeniuController extends Controller
     {
         $input = Request::all();
         Services::create($input);
-        return redirect('admin/servicii');
+        return redirect('admin/servicii')->with('success','Serviciu adăugat cu succes!');
     }
 
     /**

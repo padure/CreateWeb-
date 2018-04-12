@@ -3,7 +3,15 @@
 @section('content')
     <div class="container-fluid">
         @include('errors.errors')
-        <h6 class="text-center">Adaugati Servicii</h6>
+        <h6 class="text-center">Adăugați Servicii</h6>
+        @if(Session::has('success'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{!! Session::get('success') !!}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+         @endif
         {{  Form::open(['url' => 'admin/servicii']) }}
             <div class="form-group">
                 {!! Form::label('title', 'Titlu:') !!}
@@ -18,7 +26,7 @@
                 {!! Form::text('icons', null, ['class' => 'form-control', 'placeholder' => 'Iconita serviciu']) !!}
             </div>
             <div class="form-group">
-                {!! Form::submit('Adauga serviciu', ['class' => 'form-control btn btn-primary']) !!}
+                {!! Form::submit('Adaugă serviciu', ['class' => 'form-control btn btn-primary']) !!}
             </div>
         {{  Form::close()   }}
         <h6 class="text-center">Servicii</h6>

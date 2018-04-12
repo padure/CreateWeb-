@@ -56,7 +56,7 @@ class PortofoliuController extends Controller
         $input['url'] = $fileName;
         $input['thumbnail'] = $fileNameTh; 
         Portofolio::create($input);
-        return redirect('admin/portofoliu')->with('success','Portofoliu adaugat cu succes!');
+        return redirect('admin/portofoliu')->with('success','Portofoliu adăugat cu succes!');
     }
 
     /**
