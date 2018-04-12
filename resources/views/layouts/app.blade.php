@@ -16,6 +16,7 @@
   <link href="{{URL::asset('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="{{URL::asset('css/sb-admin.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
 </head>
 @if (Auth::guest())
     @else

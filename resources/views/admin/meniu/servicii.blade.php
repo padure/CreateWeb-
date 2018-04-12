@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
+        @include('errors.errors')
         <h6>Adaugati Servicii</h6>
         {{  Form::open(['url' => 'admin/servicii']) }}
             <div class="form-group">

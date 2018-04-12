@@ -35,7 +35,7 @@ class MeniuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\CreateServicesRequest $request)
     {
         $input = Request::all();
         Services::create($input);
