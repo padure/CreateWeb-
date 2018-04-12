@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use App\Portofolio;
+use Illuminate\Support\Facades\Auth;
 
 class PortofoliuController extends Controller
 {
@@ -13,7 +15,12 @@ class PortofoliuController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::check()) {
+            $portofolii = Portofolio::get();
+            return view('admin.meniu.portofoliu', compact('portofolii'));
+        }else{
+            return redirect('admin');
+        }
     }
 
     /**
@@ -32,9 +39,11 @@ class PortofoliuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\CreatePortofoliuRequest $request)
     {
-        //
+        $input = Request::all();
+        Portofolio::create($input);
+        return redirect('admin/portofoliu');
     }
 
     /**

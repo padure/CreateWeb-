@@ -13,11 +13,11 @@ class CreatePortofoliusTable extends Migration
      */
     public function up()
     {
-        Schema::create('portofolius', function (Blueprint $table) {
+        Schema::create('portofolios', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('subtitle');
-            $table->string('description');
+            $table->text('description');
             $table->date('date');
             $table->string('client');
             $table->string('categorie');

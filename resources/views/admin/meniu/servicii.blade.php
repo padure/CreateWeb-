@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         @include('errors.errors')
-        <h6>Adaugati Servicii</h6>
+        <h6 class="text-center">Adaugati Servicii</h6>
         {{  Form::open(['url' => 'admin/servicii']) }}
             <div class="form-group">
                 {!! Form::label('title', 'Titlu:') !!}
@@ -18,10 +18,10 @@
                 {!! Form::text('icons', null, ['class' => 'form-control', 'placeholder' => 'Iconita serviciu']) !!}
             </div>
             <div class="form-group">
-            {!! Form::submit('Adauga serviciu', ['class' => 'form-control btn btn-primary']) !!}
+                {!! Form::submit('Adauga serviciu', ['class' => 'form-control btn btn-primary']) !!}
             </div>
         {{  Form::close()   }}
-        <h6>Servicii</h6>
+        <h6 class="text-center">Servicii</h6>
         <table class="table table-hover">
     <thead>
       <tr>
@@ -42,9 +42,5 @@
       @endforeach
     </tbody>
   </table>
-        
-            <p></p>
-            <p></p>
-        
     </div>
 @endsection
