@@ -30,8 +30,8 @@ class CreatePortofoliuRequest extends FormRequest
             'date'       => 'required',
             'client'     => 'required',
             'categorie'  => 'required',
-            'url'        => 'required',
-            'thumbnail'  => 'required',
+            'url'        => 'required|image|mimes:jpeg,png,jpg',
+            'thumbnail'  => 'required|image|mimes:jpeg,png,jpg',
         ];
     }
 }

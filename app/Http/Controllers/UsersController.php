@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services;
+use App\Portofolio;
 
 class UsersController extends Controller
 {
@@ -15,7 +16,8 @@ class UsersController extends Controller
     public function index()
     {
         $servicii = Services::orderBy('id','asc')->get();
-        return view('layouts.home', compact('servicii'));
+        $portofolii = Portofolio::orderBy('id','asc')->get();
+        return view('layouts.home', compact('servicii', 'portofolii'));
     }
 
     /**

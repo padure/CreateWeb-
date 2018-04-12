@@ -44,7 +44,7 @@ class PortofoliuController extends Controller
      */
     public function store(\App\Http\Requests\CreatePortofoliuRequest $request)
     {
-        $input = Request::all();
+        $input = Request::all();        
         $path = '';
         $file = $request->file('url');
         $fileTh = $request->file('thumbnail');
@@ -53,8 +53,10 @@ class PortofoliuController extends Controller
         $path = 'img/portfolio';
         $file = $file->move($path, $fileName);
         $fileTh = $fileTh->move($path, $fileNameTh);
+        $input['url'] = $fileName;
+        $input['thumbnail'] = $fileNameTh; 
         Portofolio::create($input);
-        return redirect('admin/portofoliu');
+        return redirect('admin/portofoliu')->with('success','Portofoliu adaugat cu succes!');
     }
 
     /**
