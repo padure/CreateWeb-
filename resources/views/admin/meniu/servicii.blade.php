@@ -30,7 +30,7 @@
             </div>
         {{  Form::close()   }}
         <h6 class="text-center">Servicii</h6>
-        <table class="table table-hover">
+        <table class="table table-hover table-condensed table-bordered">
     <thead>
       <tr>
         <th>Id</th>

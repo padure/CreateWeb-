@@ -50,7 +50,7 @@
         </div>
     {{ Form::close() }}
     <h6 class="text-center">Portofoliu</h6>
-        <table class="table table-hover">
+        <table class="table table-hover table-condensed table-bordered">
     <thead>
       <tr>
         <th>Id</th>
