@@ -39,11 +39,11 @@
         </div>
         <div class="form-group">
             {!! Form::label('url', 'Imagine full:') !!}
-            {{ Form::file('url', ['name' => 'url'])}}
+            {{ Form::file('url', ['class' => 'form-control', 'name' => 'url'])}}
         </div>
         <div class="form-group">
             {!! Form::label('thumbnail', 'Imagine fundal:', ['class' => 'portofoliu-img']) !!}
-            {{ Form::file('thumbnail',  ['name' => 'thumbnail']) }}
+            {{ Form::file('thumbnail',  ['class' => 'form-control', 'name' => 'thumbnail']) }}
         </div>
         <div class="form-group">
             {!! Form::submit('Adaugă portofoliu', ['class' => 'form-control btn btn-primary']) !!}

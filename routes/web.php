@@ -33,5 +33,7 @@ Route::prefix('admin')->group(function () {
     Route::post('servicii', 'MeniuController@store');
     Route::get('portofoliu', 'PortofoliuController@index');
     Route::post('portofoliu', 'PortofoliuController@store');
+    Route::get('despre', 'AbautsController@index');
+    Route::post('despre', 'AbautsController@store');
 });
 Route::get('admin', 'HomeController@index')->name('index');

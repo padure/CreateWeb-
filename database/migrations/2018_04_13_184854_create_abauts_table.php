@@ -17,6 +17,7 @@ class CreateAbautsTable extends Migration
             $table->increments('id');
             $table->integer('nr');
             $table->string('language');
+            $table->string('date');
             $table->string('title');
             $table->text('description');
             $table->string('image');

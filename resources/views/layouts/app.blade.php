@@ -64,7 +64,7 @@
               <a href="{{ url('admin/portofoliu') }}">Portofoliu</a>
             </li>
             <li>
-              <a href="{{ url('admin/blank') }}">Second Level Item</a>
+              <a href="{{ url('admin/despre') }}">Despre</a>
             </li>
           </ul>
         </li>

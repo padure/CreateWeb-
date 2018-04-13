@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use App\Abauts;
+use Illuminate\Support\Facades\Auth;
 
 class AbautsController extends Controller
 {
@@ -13,7 +15,14 @@ class AbautsController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::check()) {
+            $istoric = Abauts::get();
+            $numar = $istoric->count();
+            $numar ++;
+            return view('admin.meniu.abaut', compact('istoric', 'numar'));
+        }else{
+            return redirect('admin');
+        }
     }
 
     /**
@@ -32,9 +41,17 @@ class AbautsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\CreateAbautsRequest $request)
     {
-        //
+        $input = Request::all();
+        $path = '';
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $path = 'img/about';
+        $file = $file->move($path, $fileName);
+        $input['image'] = $fileName;
+        Abauts::create($input);
+        return redirect('admin/despre')->with('success','Istoric adăugat cu succes!');
     }
 
     /**
