@@ -16,7 +16,7 @@
         {{ Form::open(array('url' => 'admin/despre', 'files' => true )) }}
             <div class="form-group">
                 {!! Form::label('nr', 'Numarul de ordine:') !!}
-                {!! Form::number('nr', null, ['min' => $numar, 'class' => 'form-control', 'placeholder' => $numar]) !!}
+                {!! Form::number('nr', null, ['min' => $numar, 'class' => 'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('language', 'Limba:') !!}
@@ -53,6 +53,7 @@
                 <th>Titlul</th>
                 <th>Descrierea</th>
                 <th>Imaginea</th>
+                <th>Clasa</th>
                 <th>Edit</th>
                 <th>Sterge</th>
             </tr>
@@ -67,6 +68,7 @@
                 <td>{{ $desc->title }}</td>
                 <td>{{ str_limit($desc->description, 40) }}</td>
                 <td>{{ $desc->image }}</td>
+                <td>{{ $desc->class }}</td>
                 <td><button class="btn btn-primary">Edit</button></td>
                 <td><button class="btn btn-danger">Delete</button></td>
             </tr>

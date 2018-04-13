@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services;
 use App\Portofolio;
+use App\Abauts;
 
 class UsersController extends Controller
 {
@@ -17,7 +18,9 @@ class UsersController extends Controller
     {
         $servicii = Services::orderBy('id','asc')->get();
         $portofolii = Portofolio::orderBy('id','asc')->get();
-        return view('layouts.home', compact('servicii', 'portofolii'));
+        $despre = Abauts::orderBy('nr','asc')->get();
+        
+        return view('layouts.home', compact('servicii', 'portofolii', 'despre'));
     }
 
     /**

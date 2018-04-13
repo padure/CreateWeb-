@@ -50,6 +50,13 @@ class AbautsController extends Controller
         $path = 'img/about';
         $file = $file->move($path, $fileName);
         $input['image'] = $fileName;
+        $n = $input['nr'];
+        if($n % 2 == 0){
+            $input['class'] = 'timeline-inverted';
+        }else{
+            $input['class'] = '';
+        }
+        
         Abauts::create($input);
         return redirect('admin/despre')->with('success','Istoric adăugat cu succes!');
     }

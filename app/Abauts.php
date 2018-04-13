@@ -13,5 +13,6 @@ class Abauts extends Model
         'title',
         'description',
         'image',
+        'class',
     ];
 }
