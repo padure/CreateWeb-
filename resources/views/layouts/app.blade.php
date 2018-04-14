@@ -66,6 +66,9 @@
             <li>
               <a href="{{ url('admin/despre') }}">Despre</a>
             </li>
+            <li>
+              <a href="{{ url('admin/team') }}">Echipa</a>
+            </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">

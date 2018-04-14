@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Services;
-use App\Portofolio;
-use App\Abauts;
-use\App\Teams;
+use Request;
+use Illuminate\Support\Facades\Auth;
+use App\Teams;
+use App\Http\Requests\TeamRequest;
 
-class UsersController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +16,14 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $servicii = Services::orderBy('id','asc')->get();
-        $portofolii = Portofolio::orderBy('id','asc')->get();
-        $despre = Abauts::orderBy('nr','asc')->get();
-        $team = Teams::orderBy('nr','asc')->get();
-        
-        return view('layouts.home', compact('servicii', 'portofolii', 'despre', 'team'));
+        if (Auth::check()) {
+            $team = Teams::get();
+            $numar = $team->count();
+            $numar = $numar+1;
+            return view('admin.meniu.team', compact('team', 'numar'));
+        }else{
+            return redirect('admin');
+        }
     }
 
     /**
@@ -41,9 +42,18 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
-        //
+        $input = Request::all();
+        $path = '';
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $path = 'img/team';
+        $file = $file->move($path, $fileName);
+        $input['image'] = $fileName;
+        Teams::create($input);
+
+        return redirect('admin/team')->with('success','Membru adăugat cu succes!');
     }
 
     /**

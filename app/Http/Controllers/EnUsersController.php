@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services;
-use App\Portofolio;
 use App\Abauts;
-use\App\Teams;
+use App\Teams;
 
-class UsersController extends Controller
+class EnUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $servicii = Services::orderBy('id','asc')->get();
-        $portofolii = Portofolio::orderBy('id','asc')->get();
         $despre = Abauts::orderBy('nr','asc')->get();
         $team = Teams::orderBy('nr','asc')->get();
         
-        return view('layouts.home', compact('servicii', 'portofolii', 'despre', 'team'));
+        return view('users.en.index', compact('despre', 'team'));
     }
 
     /**

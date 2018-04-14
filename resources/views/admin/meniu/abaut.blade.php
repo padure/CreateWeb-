@@ -15,7 +15,7 @@
         @endif
         {{ Form::open(array('url' => 'admin/despre', 'files' => true )) }}
             <div class="form-group">
-                {!! Form::label('nr', 'Numarul de ordine:') !!}
+                {!! Form::label('nr', 'Numărul de ordine:') !!}
                 {!! Form::number('nr', null, ['min' => $numar, 'class' => 'form-control']) !!}
             </div>
             <div class="form-group">

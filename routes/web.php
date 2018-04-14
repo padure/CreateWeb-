@@ -14,9 +14,7 @@ Route::get('register', function () {
     return redirect('login');
 });
 Route::get('/', 'UsersController@index');
-Route::get('/en', function () {
-    return view('users.en.index');
-});
+Route::get('/en', 'EnUsersController@index');
 
 Auth::routes();
 Route::prefix('admin')->group(function () {
@@ -35,5 +33,7 @@ Route::prefix('admin')->group(function () {
     Route::post('portofoliu', 'PortofoliuController@store');
     Route::get('despre', 'AbautsController@index');
     Route::post('despre', 'AbautsController@store');
+    Route::get('team', 'TeamController@index');
+    Route::post('team', 'TeamController@store');
 });
 Route::get('admin', 'HomeController@index')->name('index');
