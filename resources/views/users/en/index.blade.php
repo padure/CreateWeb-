@@ -73,6 +73,14 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
+        @if(Session::has('success'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{!! Session::get('success') !!}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+         @endif
           <div class="intro-lead-in">Welcome To Our Studio!</div>
           <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
@@ -125,7 +133,6 @@
 
     <!-- Contact form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>

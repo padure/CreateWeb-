@@ -14,6 +14,7 @@ Route::get('register', function () {
     return redirect('login');
 });
 Route::get('/', 'UsersController@index');
+Route::post('/send', 'UsersController@store');
 Route::get('/en', 'EnUsersController@index');
 
 Auth::routes();

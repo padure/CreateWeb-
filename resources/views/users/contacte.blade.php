@@ -9,35 +9,37 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate>
+            @include('errors.errors')
+            {{  Form::open(array('url' => '/send', 'name' => 'sentMessage', 'id' => 'contactForm' )) }}
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Numele Tău *" required data-validation-required-message="Please enter your name.">
+                      {!! Form::text('nume', null, ['class' => 'form-control', 'type'=>'text', 'id' => 'name', 'placeholder' => 'Numele Tău *', 'data-validation-required-message' => 'Please enter your name.']) !!}
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Email Tău *" required data-validation-required-message="Please enter your email address.">
+                      {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'Email Tău *', 'data-validation-required-message' => 'Please enter your email address.']) !!}
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="phone" type="tel" placeholder="Telefonul Tău *" required data-validation-required-message="Please enter your phone number.">
+                      {!! Form::text('telefon', null, ['class' => 'form-control', 'type'=>'tel', 'id' => 'phone', 'placeholder' => 'Telefonul Tău *', 'data-validation-required-message' => 'Please enter your phone number.']) !!}
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Mesajul Tău *" required data-validation-required-message="Please enter a message."></textarea>
+                    {!! Form::textarea('mesaj', null, ['class' => 'form-control', 'id' => 'message', 'placeholder' => 'Mesajul Tău *', 'data-validation-required-message' => 'Please enter a message.']) !!}
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Comandă Acum</button>
+                    {!! Form::submit('Comandă Acum', ['class' => 'btn btn-primary btn-xl text-uppercase']) !!}
                 </div>
               </div>
             </form>
+            {{  Form::close()   }}
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Message;
 
 class TableController extends Controller
 {
@@ -16,7 +17,9 @@ class TableController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return view('admin.table');
+            $message = Message::orderBy('id','asc')->get();
+
+            return view('admin.table', compact('message'));
             }else{
                 return redirect('login');
             }

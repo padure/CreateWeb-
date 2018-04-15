@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Services;
 use App\Portofolio;
 use App\Abauts;
-use\App\Teams;
+use App\Teams;
+use App\Message;
+use App\Http\Requests\MessageRequest;
 
 class UsersController extends Controller
 {
@@ -41,9 +43,12 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MessageRequest $request)
     {
-        //
+        $input = Request::all();
+        Message::create($input);
+
+        return redirect('/')->with('success','Mesaj expediat cu succes!');
     }
 
     /**
