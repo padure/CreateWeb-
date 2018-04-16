@@ -88,7 +88,8 @@ class AdminController extends Controller
     public function meniu(){
         if (Auth::check()) {
         $meniu = Meniu::get();
-        return view('admin.meniu', compact('meniu'));
+        $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+        return view('admin.meniu', compact('meniu', 'liveMessage'));
         }else{
             return redirect('admin');
         }

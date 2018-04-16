@@ -14,12 +14,16 @@
          @endif
         {{  Form::open(['url' => 'admin/servicii']) }}
             <div class="form-group">
+                {!! Form::label('lg', 'Limba:') !!}
+                {!! Form::select('lg',  array('RO' => 'Română', 'EN' => 'Engleză'), null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('title', 'Titlu:') !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Titlu serviciu']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('description', 'Descriere:') !!}
-                {!! Form::text('description', null, ['class' => 'form-control', 'placeholder' => 'Descriere serviciu']) !!} 
+                {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Descriere serviciu', 'rows' => 5]) !!} 
             </div>
             <div class="form-group">
                 {!! Form::label('icons', 'Iconita:') !!}
@@ -34,6 +38,7 @@
     <thead>
       <tr>
         <th>Id</th>
+        <th>Limba</th>
         <th>Titlu</th>
         <th>Descriere</th>
         <th>Iconita</th>
@@ -43,6 +48,7 @@
     @foreach($servicii as $serviciu)
       <tr>
         <td>{{ $serviciu->id }}</td>
+        <td>{{ $serviciu->lg }}</td>
         <td>{{ $serviciu->title }}</td>
         <td>{{ $serviciu->description }}</td>
         <td>{{ $serviciu->icons }}</td>

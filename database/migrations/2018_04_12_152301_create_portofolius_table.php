@@ -15,6 +15,7 @@ class CreatePortofoliusTable extends Migration
     {
         Schema::create('portofolios', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('lg');
             $table->string('name');
             $table->string('subtitle');
             $table->text('description');

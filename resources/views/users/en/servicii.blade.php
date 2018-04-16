@@ -8,54 +8,18 @@
           </div>
         </div>
         <div class="row text-center">
+        @foreach ($servicii as $serviciu)
+        @if ($serviciu->lg == 'EN')
           <div class="col-md-4">
           <span class="fa-stack fa-4x">
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+              <i class="fa {{$serviciu->icons}} fa-stack-1x fa-inverse"></i>
             </span>
-            <h4 class="service-heading">Create a site</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            <h4 class="service-heading">{{  $serviciu->title }}</h4>
+            <p class="text-muted">{{ $serviciu->description }}</p>
           </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-drivers-license-o fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Presentation site: One page</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Landing page</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-search fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">SEO optimization</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-mobile-phone fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Web design</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Administration and maintenance</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
+          @endif
+          @endforeach
         </div>
       </div>
     </section>

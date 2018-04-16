@@ -14,6 +14,10 @@
     @endif
     {{ Form::open(array('url' => 'admin/portofoliu', 'files' => true )) }}
         <div class="form-group">
+                {!! Form::label('lg', 'Limba:') !!}
+                {!! Form::select('lg',  array('RO' => 'Română', 'EN' => 'Engleză'), null, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('name', 'Numele Proiectului:') !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nume']) !!}
         </div>
@@ -54,6 +58,7 @@
     <thead>
       <tr>
         <th>Id</th>
+        <th>Limba</th>
         <th>Nume</th>
         <th>Subtitlu</th>
         <th>Descriere</th>
@@ -70,6 +75,7 @@
     @foreach($portofolii as $portofoliu)
       <tr>
         <td>{{ $portofoliu->id }}</td>
+        <td>{{ $portofoliu->lg }}</td>
         <td>{{ $portofoliu->name }}</td>
         <td>{{ $portofoliu->subtitle }}</td>
         <td>{{ str_limit($portofoliu->description, 40) }}</td>

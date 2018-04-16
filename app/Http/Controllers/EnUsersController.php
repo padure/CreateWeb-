@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Abauts;
 use App\Teams;
+use App\Portofolio;
+use App\Services;
 
 class EnUsersController extends Controller
 {
@@ -17,8 +19,10 @@ class EnUsersController extends Controller
     {
         $despre = Abauts::orderBy('nr','asc')->get();
         $team = Teams::orderBy('nr','asc')->get();
+        $portofolii = Portofolio::orderBy('id','asc')->get();
+        $servicii = Services::orderBy('id','asc')->get();
         
-        return view('users.en.index', compact('despre', 'team'));
+        return view('users.en.index', compact('despre', 'team', 'portofolii', 'servicii'));
     }
 
     /**

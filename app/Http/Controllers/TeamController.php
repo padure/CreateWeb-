@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Request;
 use Illuminate\Support\Facades\Auth;
 use App\Teams;
+use App\Message;
 use App\Http\Requests\TeamRequest;
 
 class TeamController extends Controller
@@ -20,7 +21,8 @@ class TeamController extends Controller
             $team = Teams::get();
             $numar = $team->count();
             $numar = $numar+1;
-            return view('admin.meniu.team', compact('team', 'numar'));
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.team', compact('team', 'numar', 'liveMessage'));
         }else{
             return redirect('admin');
         }

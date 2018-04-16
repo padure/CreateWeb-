@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+        $message = Message::get();
+        $nrMessage = $message->count();
+        $message = Message::orderBy('id','asc')->get();
+        $lastMessage = Message::orderBy('id', 'desc')->limit(1)->get();
+        return view('admin.index', compact('liveMessage', 'nrMessage', 'message', 'lastMessage'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
+use App\Message;
 use App\Abauts;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,8 @@ class AbautsController extends Controller
             $istoric = Abauts::get();
             $numar = $istoric->count();
             $numar ++;
-            return view('admin.meniu.abaut', compact('istoric', 'numar'));
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.abaut', compact('istoric', 'numar', 'liveMessage'));
         }else{
             return redirect('admin');
         }

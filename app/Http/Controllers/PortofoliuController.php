@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Portofolio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Message;
 
 class PortofoliuController extends Controller
 {
@@ -20,7 +21,9 @@ class PortofoliuController extends Controller
     {
         if (Auth::check()) {
             $portofolii = Portofolio::get();
-            return view('admin.meniu.portofoliu', compact('portofolii'));
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+
+            return view('admin.meniu.portofoliu', compact('portofolii', 'liveMessage'));
         }else{
             return redirect('admin');
         }

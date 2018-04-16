@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Message;
 
 class ExempleController extends Controller
 {
@@ -16,7 +17,8 @@ class ExempleController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return view('admin.login');
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.login', compact('liveMessage'));
             }else{
                 return redirect('login');
             }
@@ -30,7 +32,8 @@ class ExempleController extends Controller
     public function register()
     {
         if (Auth::check()) {
-            return view('admin.register');
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.register', compact('liveMessage'));
             }else{
                 return redirect('login');
             }
@@ -39,7 +42,8 @@ class ExempleController extends Controller
     public function forgot()
     {
         if (Auth::check()) {
-            return view('admin.forgot');
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.forgot', compact('liveMessage'));
             }else{
                 return redirect('login');
             }
@@ -47,7 +51,8 @@ class ExempleController extends Controller
     public function blank()
     {
         if (Auth::check()) {
-            return view('admin.blank');
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.blank', compact('liveMessage'));
             }else{
                 return redirect('login');
             }

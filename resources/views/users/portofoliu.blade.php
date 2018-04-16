@@ -9,6 +9,7 @@
         </div>
         <div class="row">
         @foreach($portofolii as $portofoliu)
+        @if($portofoliu->lg == 'RO')
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ $portofoliu->id }}">
               <div class="portfolio-hover">
@@ -23,6 +24,7 @@
               <p class="text-muted">{{ $portofoliu->categorie}}</p>
             </div>
           </div>
+          @endif
           @endforeach
         </div>
       </div>

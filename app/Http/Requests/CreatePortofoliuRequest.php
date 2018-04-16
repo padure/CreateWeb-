@@ -24,6 +24,7 @@ class CreatePortofoliuRequest extends FormRequest
     public function rules()
     {
         return [
+            'lg'       => 'required',
             'name'       => 'required',
             'subtitle'   => 'required',
             'description'=> 'required',

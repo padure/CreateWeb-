@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Message;
 
 class ChartController extends Controller
 {
@@ -16,7 +17,8 @@ class ChartController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return view('admin.chart');
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.chart', compact('liveMessage'));
             }else{
                 return redirect('admin');
             }

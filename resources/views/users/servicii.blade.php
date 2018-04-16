@@ -9,6 +9,7 @@
         </div>
         <div class="row text-center">
         @foreach ($servicii as $serviciu)
+        @if ($serviciu->lg == 'RO')
           <div class="col-md-4">
           <span class="fa-stack fa-4x">
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -17,6 +18,7 @@
             <h4 class="service-heading">{{  $serviciu->title }}</h4>
             <p class="text-muted">{{ $serviciu->description }}</p>
           </div>
+          @endif
           @endforeach
         </div>
       </div>

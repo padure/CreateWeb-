@@ -6,6 +6,7 @@ use App\Services;
 use Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Message;
 
 class MeniuController extends Controller
 {
@@ -86,7 +87,8 @@ class MeniuController extends Controller
     {
         if (Auth::check()) {
             $servicii = Services::get();
-            return view('admin.meniu.servicii', compact('servicii'));
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.servicii', compact('servicii', 'liveMessage'));
             }else{
                 return redirect('admin');
             }

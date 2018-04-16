@@ -18,8 +18,10 @@ class TableController extends Controller
     {
         if (Auth::check()) {
             $message = Message::orderBy('id','asc')->get();
+            $lastMessage = Message::orderBy('id', 'desc')->limit(1)->get();
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
 
-            return view('admin.table', compact('message'));
+            return view('admin.table', compact('message', 'lastMessage', 'liveMessage'));
             }else{
                 return redirect('login');
             }
@@ -52,9 +54,14 @@ class TableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        if (Auth::check()) {
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.table', compact('message', 'lastMessage'));
+            }else{
+                return redirect('login');
+            }
     }
 
     /**

@@ -24,6 +24,7 @@ class CreateServicesRequest extends FormRequest
     public function rules()
     {
         return [
+            'lg'       => 'required',
             'title'       => 'required',
             'description' => 'required',
             'icons'       => 'required',
