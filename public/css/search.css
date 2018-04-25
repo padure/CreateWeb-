@@ -1,0 +1,13 @@
+.search{
+    padding-top: 170px!important;
+    padding-bottom: 50%!important;
+}
+.search-container{
+    text-align: justify;
+    background-color: white;
+    color: #212529;
+    padding: 30px;
+}
+.search-container h5{
+    color: #fed136;
+}

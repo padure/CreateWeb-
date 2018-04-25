@@ -16,6 +16,8 @@ Route::get('register', function () {
 Route::get('/', 'UsersController@index');
 Route::post('/send', 'UsersController@store');
 Route::get('/en', 'EnUsersController@index');
+Route::post('search', 'SearchController@search');
+Route::post('en/search', 'SearchController@searchen');
 
 Auth::routes();
 Route::prefix('admin')->group(function () {

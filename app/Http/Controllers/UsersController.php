@@ -24,6 +24,7 @@ class UsersController extends Controller
         $despre = Abauts::orderBy('nr','asc')->get();
         $team = Teams::orderBy('nr','asc')->get();
         
+        
         return view('layouts.home', compact('servicii', 'portofolii', 'despre', 'team'));
     }
 

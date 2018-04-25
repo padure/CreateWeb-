@@ -43,9 +43,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
-            <form class="form-inline nav-item" style="width: 120px;">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;">
-            </form>
+            {{ Form::open(array('url' => 'search', 'class' => 'form-inline nav-item', 'style' => 'width: 120px')) }}
+            {!! Form::text('query', null, ['class' => 'form-control', 'type'=>'search', 'aria-label' => 'Search', 'placeholder' => 'Search', 'style' => 'width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;']) !!}
+            {{ Form::close() }}
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Servicii</a>
             </li>

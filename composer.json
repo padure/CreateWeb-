@@ -7,9 +7,11 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
+        "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.2.0",
-        "mews/captcha": "~2.0"
+        "mews/captcha": "~2.0",
+        "tamayo/laravel-scout-elastic": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
