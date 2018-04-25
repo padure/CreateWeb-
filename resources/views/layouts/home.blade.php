@@ -24,6 +24,9 @@
           .form-inline{
           width: 100%!important;
           }
+          .search-index{
+            margin-top: 20px;
+          }
       }
     </style>
     <!-- Custom styles for this template -->
@@ -38,13 +41,13 @@
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
+        Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             {{ Form::open(array('url' => 'search', 'class' => 'form-inline nav-item', 'style' => 'width: 120px')) }}
-            {!! Form::text('query', null, ['class' => 'form-control', 'type'=>'search', 'aria-label' => 'Search', 'placeholder' => 'Search', 'style' => 'width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;']) !!}
+            {!! Form::text('query', null, ['class' => 'form-control search-index', 'type'=>'search', 'aria-label' => 'Search', 'placeholder' => 'Search', 'style' => 'width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;']) !!}
             {{ Form::close() }}
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Servicii</a>

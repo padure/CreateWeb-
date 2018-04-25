@@ -24,6 +24,9 @@
           .form-inline{
           width: 100%!important;
           }
+          .search-index{
+            margin-top: 20px;
+          }
       }
     </style>
     <!-- Custom styles for this template -->
@@ -44,7 +47,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             {{ Form::open(array('url' => 'en/search', 'class' => 'form-inline nav-item', 'style' => 'width: 150px')) }}
-            {!! Form::text('query', null, ['class' => 'form-control', 'type'=>'search', 'aria-label' => 'Search', 'placeholder' => 'Search', 'style' => 'width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;']) !!}
+            {!! Form::text('query', null, ['class' => 'form-control search-index', 'type'=>'search', 'aria-label' => 'Search', 'placeholder' => 'Search', 'style' => 'width: 100%!important; padding: .150rem .30rem!important; background-color: transparent; color: #fed136; border-radius: 0;']) !!}
             {{ Form::close() }}
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Services</a>
