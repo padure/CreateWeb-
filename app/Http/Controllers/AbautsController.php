@@ -82,7 +82,14 @@ class AbautsController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::check()) {
+            $abaut = Abauts::findOrFail($id);    
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.editabaut', compact('abaut', 'liveMessage'));
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -92,9 +99,16 @@ class AbautsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\CreateAbautsRequest $request, $id)
     {
-        //
+        if (Auth::check()) {
+            $abauts = Abauts::findOrFail($id); 
+            $abauts->update($request->all());
+            return redirect('admin/despre')->with('success','Istoric editat cu succes!');
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -105,6 +119,12 @@ class AbautsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::check()) {
+            Abauts::findOrFail($id)->delete();
+            return redirect('admin/despre')->with('success','Istoric șters cu succes!');
+        }
+        else{
+            return redirect('admin');
+        }
     }
 }

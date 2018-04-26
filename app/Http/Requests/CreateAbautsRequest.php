@@ -29,7 +29,7 @@ class CreateAbautsRequest extends FormRequest
             'date'        => 'required',
             'title'       => 'required',
             'description' => 'required',
-            'image'       => 'required|image|mimes:jpeg,png,jpg',
+            'image'       => 'required',
         ];
     }
 }

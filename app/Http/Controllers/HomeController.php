@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\Services;
+use App\Portofolio;
+use App\Teams;
 
 class HomeController extends Controller
 {
@@ -25,11 +28,13 @@ class HomeController extends Controller
     public function index()
     {
         $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
-        $message = Message::get();
-        $nrMessage = $message->count();
+        $nrMessage = Message::get()->count();
+        $nrServices = Services::get()->count();
+        $nrPortofolii = Portofolio::get()->count();
+        $nrTeam = Teams::get()->count();
         $message = Message::orderBy('id','asc')->get();
         $lastMessage = Message::orderBy('id', 'desc')->limit(1)->get();
-        return view('admin.index', compact('liveMessage', 'nrMessage', 'message', 'lastMessage'));
+        return view('admin.index', compact('liveMessage', 'nrMessage', 'message', 'lastMessage', 'nrServices', 'nrPortofolii', 'nrTeam'));
     }
 
     /**

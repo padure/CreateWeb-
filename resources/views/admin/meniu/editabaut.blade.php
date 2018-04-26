@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container-fluid">
-        @include('errors.errors')
-        <h6 class="text-center">Adăugați Istoric</h6>
+<div class="container-fluid">
+    @include('errors.errors')
+    <h6 class="text-center">Editați Portofolii</h6>
         @if(Session::has('success'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>{!! Session::get('success') !!}</strong>
@@ -12,11 +11,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        @endif
-        {{ Form::open(array('url' => 'admin/despre', 'files' => true )) }}
+         @endif
+         {!! Form::model($abaut, ['method' => 'PATCH', 'action'=>['AbautsController@update', $abaut->id]]) !!}
             <div class="form-group">
                 {!! Form::label('nr', 'Numărul de ordine:') !!}
-                {!! Form::number('nr', null, ['min' => $numar, 'class' => 'form-control']) !!}
+                {!! Form::number('nr', null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('language', 'Limba:') !!}
@@ -39,42 +38,8 @@
                 {{ Form::file('image', ['class' => 'form-control', 'name' => 'image']) }}
             </div>
             <div class="form-group">
-                {!! Form::submit('Adaugă Istoric', ['class' => 'form-control btn btn-primary']) !!}
+                {!! Form::submit('Editați Istoric', ['class' => 'form-control btn btn-primary']) !!}
             </div>
         {{ Form::close() }}
-        <h6 class="text-center">Istoric</h6>
-        <table class="table table-hover table-condensed table-bordered">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nr/Or</th>
-                <th>Limba</th>
-                <th>Data</th>
-                <th>Titlul</th>
-                <th>Descrierea</th>
-                <th>Imaginea</th>
-                <th>Clasa</th>
-                <th>Edit</th>
-                <th>Sterge</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($istoric as $desc)
-            <tr>
-                <td>{{ $desc->id }}</td>
-                <td>{{ $desc->nr }}</td>
-                <td>{{ $desc->language }}</td>
-                <td>{{ $desc->date }}</td>
-                <td>{{ $desc->title }}</td>
-                <td>{{ str_limit($desc->description, 40) }}</td>
-                <td>{{ $desc->image }}</td>
-                <td>{{ $desc->class }}</td>
-                <td><a href="{{$desc->id}}/abauts"><button class="btn btn-success">Edit</button></a></td>
-                <td><a href="abauts/{{ $desc->id }}"><button class="btn btn-danger">Delete</button></a></td>
-            </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
-
+</div>
 @endsection

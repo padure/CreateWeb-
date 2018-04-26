@@ -81,7 +81,14 @@ class PortofoliuController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::check()) {
+            $portofoliu = Portofolio::findOrFail($id);    
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.editportofoliu', compact('portofoliu', 'liveMessage'));
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -91,9 +98,16 @@ class PortofoliuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\CreatePortofoliuRequest $request, $id)
     {
-        //
+        if (Auth::check()) {
+            $portofoliu = Portofolio::findOrFail($id); 
+            $portofoliu->update($request->all());
+            return redirect('admin/portofoliu')->with('success','Portofoliu editat cu succes!');
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -104,6 +118,12 @@ class PortofoliuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::check()) {
+            Portofolio::findOrFail($id)->delete();
+            return redirect('admin/portofoliu')->with('success','Portofoliu șters cu succes!');
+        }
+        else{
+            return redirect('admin');
+        }
     }
 }

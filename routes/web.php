@@ -30,15 +30,25 @@ Route::prefix('admin')->group(function () {
     Route::get('register', 'ExempleController@register');
     Route::get('forgot', 'ExempleController@forgot');
     Route::get('blank', 'ExempleController@blank');
+    //Route servicii
     Route::get('servicii', 'MeniuController@servicii');
     Route::post('servicii', 'MeniuController@store');
     Route::get('{id}/edit', 'MeniuController@edit');
     Route::PATCH('{id}/edit', 'MeniuController@update');
     Route::get('servicii/{id}', 'MeniuController@destroy');
+    //Route portofoliu
     Route::get('portofoliu', 'PortofoliuController@index');
     Route::post('portofoliu', 'PortofoliuController@store');
+    Route::get('{id}/portofoliu', 'PortofoliuController@edit');
+    Route::PATCH('{id}/portofoliu', 'PortofoliuController@update');
+    Route::get('portofoliu/{id}', 'PortofoliuController@destroy');
+    //Route abauts
     Route::get('despre', 'AbautsController@index');
     Route::post('despre', 'AbautsController@store');
+    Route::get('{id}/abauts', 'AbautsController@edit');
+    Route::PATCH('{id}/abauts', 'AbautsController@update');
+    Route::get('abauts/{id}', 'AbautsController@destroy');
+    //Route team
     Route::get('team', 'TeamController@index');
     Route::post('team', 'TeamController@store');
 });
