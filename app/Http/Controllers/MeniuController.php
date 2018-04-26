@@ -62,7 +62,14 @@ class MeniuController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::check()) {
+            $serviciu = Services::findOrFail($id);    
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.editserviciu', compact('serviciu', 'liveMessage'));
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -72,9 +79,16 @@ class MeniuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\CreateServicesRequest $request, $id)
     {
-        //
+        if (Auth::check()) {
+            $serviciu = Services::findOrFail($id); 
+            $serviciu->update($request->all());
+            return redirect('admin/servicii')->with('success','Serviciu editat cu succes!');
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
-        @include('errors.errors')
-        <h6 class="text-center">Adăugați Servicii</h6>
+<div class="container-fluid">
+    @include('errors.errors')
+    <h6 class="text-center">Editați Serviciu</h6>
         @if(Session::has('success'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>{!! Session::get('success') !!}</strong>
@@ -12,7 +12,7 @@
                 </button>
             </div>
          @endif
-        {{  Form::open(['url' => 'admin/servicii']) }}
+         {!! Form::model($serviciu, ['method' => 'PATCH', 'action'=>['MeniuController@update', $serviciu->id]]) !!}
             <div class="form-group">
                 {!! Form::label('lg', 'Limba:') !!}
                 {!! Form::select('lg',  array('RO' => 'Română', 'EN' => 'Engleză'), null, ['class' => 'form-control']) !!}
@@ -30,35 +30,8 @@
                 {!! Form::text('icons', null, ['class' => 'form-control', 'placeholder' => 'Iconita serviciu']) !!}
             </div>
             <div class="form-group">
-                {!! Form::submit('Adaugă serviciu', ['class' => 'form-control btn btn-primary']) !!}
+                {!! Form::submit('Editaţi serviciu', ['class' => 'form-control btn btn-primary']) !!}
             </div>
         {{  Form::close()   }}
-        <h6 class="text-center">Servicii</h6>
-        <table class="table table-hover table-condensed table-bordered">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Limba</th>
-        <th>Titlu</th>
-        <th>Descriere</th>
-        <th>Iconita</th>
-        <th>Editare</th>
-        <th>Sterge</th>
-      </tr>
-    </thead>
-    <tbody>
-    @foreach($servicii as $serviciu)
-      <tr>
-        <td>{{ $serviciu->id }}</td>
-        <td>{{ $serviciu->lg }}</td>
-        <td>{{ $serviciu->title }}</td>
-        <td>{{ $serviciu->description }}</td>
-        <td>{{ $serviciu->icons }}</td>
-        <td><a href="{{$serviciu->id}}/edit"><button class="btn btn-success">Edit</button></a></td>
-        <td><button class="btn btn-danger">Delete</button></td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-    </div>
+</div>
 @endsection
