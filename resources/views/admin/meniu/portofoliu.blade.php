@@ -84,7 +84,7 @@
         <td>{{ $portofoliu->categorie }}</td>
         <td>{{ $portofoliu->url }}</td>
         <td>{{ $portofoliu->thumbnail }}</td>
-        <td><a href="{{$portofoliu->id}}/portofoliu"><button class="btn btn-success">Edit</button></a></td>
+        <td><a href="{{$portofoliu->id}}/portofoliu"><button class="btn btn-primary">Edit</button></a></td>
         <td><a href="portofoliu/{{ $portofoliu->id }}"><button class="btn btn-danger">Delete</button></a></td>
       </tr>
       @endforeach

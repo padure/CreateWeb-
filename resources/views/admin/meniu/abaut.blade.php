@@ -69,7 +69,7 @@
                 <td>{{ str_limit($desc->description, 40) }}</td>
                 <td>{{ $desc->image }}</td>
                 <td>{{ $desc->class }}</td>
-                <td><a href="{{$desc->id}}/abauts"><button class="btn btn-success">Edit</button></a></td>
+                <td><a href="{{$desc->id}}/abauts"><button class="btn btn-primary">Edit</button></a></td>
                 <td><a href="abauts/{{ $desc->id }}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             @endforeach
