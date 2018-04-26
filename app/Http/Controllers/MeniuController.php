@@ -25,9 +25,15 @@ class MeniuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function destroy($id)
     {
-        
+        if (Auth::check()) {
+            Services::findOrFail($id)->delete();
+            return redirect('admin/servicii')->with('success','Serviciu șters cu succes!');
+        }
+        else{
+            return redirect('admin');
+        }
     }
 
     /**

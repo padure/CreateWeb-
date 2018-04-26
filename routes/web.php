@@ -34,6 +34,7 @@ Route::prefix('admin')->group(function () {
     Route::post('servicii', 'MeniuController@store');
     Route::get('{id}/edit', 'MeniuController@edit');
     Route::PATCH('{id}/edit', 'MeniuController@update');
+    Route::get('servicii/{id}', 'MeniuController@destroy');
     Route::get('portofoliu', 'PortofoliuController@index');
     Route::post('portofoliu', 'PortofoliuController@store');
     Route::get('despre', 'AbautsController@index');

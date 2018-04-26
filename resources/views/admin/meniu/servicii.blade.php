@@ -55,7 +55,7 @@
         <td>{{ $serviciu->description }}</td>
         <td>{{ $serviciu->icons }}</td>
         <td><a href="{{$serviciu->id}}/edit"><button class="btn btn-success">Edit</button></a></td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td><a href="servicii/{{ $serviciu->id }}"><button class="btn btn-danger">Delete</button></a></td>
       </tr>
       @endforeach
     </tbody>
