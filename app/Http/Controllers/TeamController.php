@@ -77,7 +77,14 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::check()) {
+            $team = Teams::findOrFail($id);    
+            $liveMessage = Message::orderBy('id', 'desc')->limit(3)->get();
+            return view('admin.meniu.editteam', compact('team', 'liveMessage'));
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -87,9 +94,16 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TeamRequest $request, $id)
     {
-        //
+        if (Auth::check()) {
+            $team = Teams::findOrFail($id); 
+            $team->update($request->all());
+            return redirect('admin/team')->with('success','Membru editat cu succes!');
+            }
+            else{
+                return redirect('admin');
+            }
     }
 
     /**
@@ -100,6 +114,12 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::check()) {
+            Teams::findOrFail($id)->delete();
+            return redirect('admin/team')->with('success','Membru șters cu succes!');
+        }
+        else{
+            return redirect('admin');
+        }
     }
 }

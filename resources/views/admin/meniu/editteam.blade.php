@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('content')
 
-    <div class="container-fluid">
-        @include('errors.errors')
-        <h6 class="text-center">Adăugați membu în echipă</h6>
+@section('content')
+<div class="container-fluid">
+    @include('errors.errors')
+    <h6 class="text-center">Editați Membru</h6>
         @if(Session::has('success'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>{!! Session::get('success') !!}</strong>
@@ -12,10 +12,10 @@
                 </button>
             </div>
          @endif
-         {{ Form::open(array('url' => 'admin/team', 'files' => true )) }}
+        {!! Form::model($team, ['method' => 'PATCH', 'action'=>['TeamController@update', $team->id]]) !!}
             <div class="form-group">
                 {!! Form::label('nr', 'Numărul de ordine:') !!}
-                {!! Form::number('nr', null, ['min' => $numar, 'class' => 'form-control', 'placeholder' => 'Numărul personal']) !!}
+                {!! Form::number('nr', null, ['class' => 'form-control', 'placeholder' => 'Numărul personal']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('lg', 'Limba:') !!}
@@ -34,38 +34,8 @@
                 {{ Form::file('image', ['class' => 'form-control', 'name' => 'image']) }}
             </div>
             <div class="form-group">
-                {!! Form::submit('Adaugă membru', ['class' => 'form-control btn btn-primary']) !!}
+                {!! Form::submit('Editați membru', ['class' => 'form-control btn btn-primary']) !!}
             </div>
         {{ Form::close() }}
-        <h6 class="text-center">Echipă</h6>
-        <table class="table table-hover table-condensed table-bordered">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nr/Or</th>
-                <th>Limba</th>
-                <th>Nume</th>
-                <th>Statut</th>
-                <th>Imaginea</th>
-                <th>Edit</th>
-                <th>Sterge</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($team as $te)
-            <tr>
-                <td>{{ $te->id }}</td>
-                <td>{{ $te->nr }}</td>
-                <td>{{ $te->lg }}</td>
-                <td>{{ $te->name }}</td>
-                <td>{{ $te->position }}</td>
-                <td>{{ $te->image }}</td>
-                <td><a href="{{$te->id}}/team"><button class="btn btn-primary">Edit</button></a></td>
-                <td><a href="team/{{ $te->id }}"><button class="btn btn-danger">Delete</button></a></td>
-            </tr>
-            @endforeach
-            </tbody>
-        </table>
     </div>
-
 @endsection
