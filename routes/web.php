@@ -54,5 +54,7 @@ Route::prefix('admin')->group(function () {
     Route::get('{id}/team', 'TeamController@edit');
     Route::PATCH('{id}/team', 'TeamController@update');
     Route::get('team/{id}', 'TeamController@destroy');
+    //Route message
+    Route::get('{id}/message', 'TableController@edit');
 });
 Route::get('admin', 'HomeController@index')->name('index');

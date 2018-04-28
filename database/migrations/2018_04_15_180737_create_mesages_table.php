@@ -19,6 +19,7 @@ class CreateMesagesTable extends Migration
             $table->string('email');
             $table->string('telefon');
             $table->text('mesaj');
+            $table->text('statut');
             $table->timestamps();
         });
     }

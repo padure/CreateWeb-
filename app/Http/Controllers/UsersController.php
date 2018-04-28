@@ -47,6 +47,7 @@ class UsersController extends Controller
     public function store(MessageRequest $request)
     {
         $input = Request::all();
+        $input['statut'] = 'New';
         Message::create($input);
 
         return redirect('/')->with('success','Mesaj expediat cu succes!');

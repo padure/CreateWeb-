@@ -23,6 +23,8 @@
                   <th>Telefon</th>
                   <th>Mesaj</th>
                   <th>Data Expedierii</th>
+                  <th>Status</th>
+                  <th>Setari</th>
                 </tr>
               </thead>
               <tfoot>
@@ -32,16 +34,29 @@
                   <th>Telefon</th>
                   <th>Mesaj</th>
                   <th>Data Expedierii</th>
+                  <th>Status</th>
+                  <th>Setari</th>
                 </tr>
               </tfoot>
               <tbody>
               @foreach ($message as $ms)
                 <tr>
+                  @if($ms->statut == 'New')
+                  <td class="text-danger">{{ $ms->nume }}</td>
+                  <td class="text-danger">{{ $ms->email }}</td>
+                  <td class="text-danger">{{ $ms->telefon }}</td>
+                  <td class="text-danger">{{ $ms->mesaj }}</td>
+                  <td class="text-danger">{{ $ms->created_at }}</td>
+                  <td><p class="text-danger">{{ $ms->statut }}</p></td>
+                  @else
                   <td>{{ $ms->nume }}</td>
                   <td>{{ $ms->email }}</td>
                   <td>{{ $ms->telefon }}</td>
                   <td>{{ $ms->mesaj }}</td>
                   <td>{{ $ms->created_at }}</td>
+                  <td>{{ $ms->statut }}</td>
+                  @endif
+                  <td><a href="{{$ms->id}}/message"><button class="btn btn-primary">Finiseaza</button></a></td>
                 </tr>
               @endforeach
               </tbody>

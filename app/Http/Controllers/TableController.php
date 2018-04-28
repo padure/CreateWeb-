@@ -70,9 +70,16 @@ class TableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        if (Auth::check()) {
+            $message = Message::findOrFail($id);
+            $message['statut']='Finisat'; 
+            $message->update();
+            return redirect('admin/tables')->with('success','Stare actualizata cu succes!');
+            }else{
+                return redirect('login');
+            }
     }
 
     /**

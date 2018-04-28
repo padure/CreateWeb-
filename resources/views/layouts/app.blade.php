@@ -132,12 +132,14 @@
           <div class="dropdown-menu" aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header text-danger">New Messages:</h6>
               @foreach ($liveMessage as $live)
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ url('admin/tables') }}">
-              <strong>{{ $live->nume }}</strong>
-              <span class="small float-right text-muted">{{ $live->created_at }}</span>
-              <div class="dropdown-message small">{{ $live->mesaj }}</div>
-            </a>
+              @if($live->statut=='New')
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url('admin/tables') }}">
+                  <strong>{{ $live->nume }}</strong>
+                  <span class="small float-right text-muted">{{ $live->created_at }}</span>
+                  <div class="dropdown-message small">{{ $live->mesaj }}</div>
+                </a>
+              @endif
             @endforeach
             <div class="dropdown-divider"></div>
             <a class="dropdown-item small" href="{{ url('admin/tables') }}">View all messages</a>
